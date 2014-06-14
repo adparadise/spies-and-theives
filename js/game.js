@@ -8,6 +8,8 @@ function Game () {
     const HEIGHT = 720;
     const TILE_SIZE = 16;
     const PLAYER_SPEED = 300;
+    const SQRT_2 = Math.sqrt(2);
+    const SQRT_2_DIV_2 = SQRT_2 / 2;
 
     const P1 = {
         LEFT: 65,
@@ -43,6 +45,7 @@ function Game () {
     proto.preload = function () {
         this.game.load.image('gray', 'assets/gray.png');
         this.game.load.image('red', 'assets/red.png');
+        this.game.load.image('blue', 'assets/blue.png');
     };
 
     proto.create = function () {
@@ -63,19 +66,6 @@ function Game () {
     };
 
     proto.createInput = function () {
-        //65: 'p1-left',
-        //68: 'p1-right',
-        //87: 'p1-up',
-        //83: 'p1-down',
-        //32: 'p1-action-1',
-        //16: 'p1-action-2',
-
-        //74: 'p2-left',
-        //76: 'p2-right',
-        //73: 'p2-up',
-        //75: 'p2-down',
-        //191: 'p2-action-1',
-        //186: 'p2-action-2'
         this.game.input.keyboard.addKeyCapture([
             P1.LEFT, P1.RIGHT, P1.UP, P1.DOWN,
             P1.ACTION_1, P1.ACTION_2,
@@ -111,31 +101,39 @@ function Game () {
     proto.createPlayers = function () {
         var player;
 
-        this.player = this.players.create(WIDTH / 2, HEIGHT / 4, 'red');
+        this.player1 = this.players.create(WIDTH / 2, HEIGHT / 4, 'red');
+        this.player2 = this.players.create(WIDTH / 2, HEIGHT * 3 / 4, 'blue');
     };
 
     proto.update = function () {
-        this.updatePlayer(this.player, P1);
+        this.updatePlayer(this.player1, P1);
+        this.updatePlayer(this.player2, P2);
 
         this.game.physics.arcade.collide(this.players, this.walls);
     };
 
-    proto.collisionHandler = function (player, wall) {
-        console.log('here');
-    };
-
     proto.updatePlayer = function (player, keys) {
-        player.body.velocity.y = 0;
+        var x, y;
+
+        y = 0;
         if (this.game.input.keyboard.isDown(keys.UP)) {
-            player.body.velocity.y = -PLAYER_SPEED;
+            y = -PLAYER_SPEED;
         } else if (this.game.input.keyboard.isDown(keys.DOWN)) {
-            player.body.velocity.y = PLAYER_SPEED;
+            y = PLAYER_SPEED;
         }
-        player.body.velocity.x = 0;
+        x = 0;
         if (this.game.input.keyboard.isDown(keys.LEFT)) {
-            player.body.velocity.x = -PLAYER_SPEED;
+            x = -PLAYER_SPEED;
         } else if (this.game.input.keyboard.isDown(keys.RIGHT)) {
-            player.body.velocity.x = PLAYER_SPEED;
+            x = PLAYER_SPEED;
         }
+
+        if (x && y) {
+            x = x * SQRT_2_DIV_2;
+            y = y * SQRT_2_DIV_2;
+        }
+
+        player.body.velocity.y = y;
+        player.body.velocity.x = x;
     };
 }(Game.prototype));
