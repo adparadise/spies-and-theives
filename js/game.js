@@ -84,15 +84,15 @@ function Game () {
         this.walls = this.map.createLayer(0);
         this.walls.enableBody = true;
 
-        this.rooms = this.game.add.group();
-        this.rooms.enableBody = true;
-        this.buildRooms(this.map.objects.rooms);
-        this.rooms.z = 100;
-
         this.players = this.game.add.group();
         this.players.enableBody = true;
         this.createPlayers();
         this.players.z = 99;
+
+        this.rooms = this.game.add.group();
+        this.rooms.enableBody = true;
+        this.buildRooms(this.map.objects.rooms);
+        this.rooms.z = 100;
     };
 
     proto.buildRooms = function (roomObjects) {
