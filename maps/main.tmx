@@ -3,9 +3,9 @@
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="../assets/tiles.png" width="64" height="64"/>
  </tileset>
- <layer name="Tile Layer 1" width="80" height="45">
+ <layer name="walls" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAA8GY4QAAB
+   eJzt18sKAyEMBdCM///RpQthKhZjHsboFS50YZ14KjVTiKggqjyIKPCDH/zyBn7wg1/enOq3qpfjfidbPymtwdNvxW8f/U6wg1/mwA9+8Msb+J3rV0e00XvfhX7HDn4Z+pZC/X1F9M+S9TzP1Y5+31Dns/b5N/lx6oVfrB93wK9fh/aeyOhHRn4z51Li16tzBz+r8zey48yfPb83+P2b35pG1A8/+MEPfhF+Wjta5EeveaM+bNSfRflJ6ufe31y/3TxWn9feep5+sznRrw7r51vVn8HP4/kn+BHTjwZz4Gfv5/Gfl9HvaeZZ3ge3+HkFfvCDHy91tOvd5Gedm/w89wA/vR8izwchVhA6
   </data>
  </layer>
 </map>

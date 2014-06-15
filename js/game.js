@@ -46,6 +46,8 @@ function Game () {
         this.game.load.image('gray', 'assets/gray.png');
         this.game.load.image('red', 'assets/red.png');
         this.game.load.image('blue', 'assets/blue.png');
+        this.game.load.image('tiles', 'assets/tiles.png');
+        this.game.load.tilemap('main', 'maps/main.json', null, Phaser.Tilemap.TILED_JSON);
     };
 
     proto.create = function () {
@@ -54,15 +56,15 @@ function Game () {
 
         this.createInput();
 
-        this.walls = this.game.add.group();
+        this.map = this.game.add.tilemap('main');
+        this.map.addTilesetImage('tiles', 'tiles');
+        this.map.setCollisionBetween(2, 5, true, 0);
+        this.walls = this.map.createLayer(0);
         this.walls.enableBody = true;
-        this.createWalls();
 
         this.players = this.game.add.group();
         this.players.enableBody = true;
         this.createPlayers();
-        console.log(this.game.input.keyboard);
-
     };
 
     proto.createInput = function () {
@@ -72,30 +74,6 @@ function Game () {
             P2.LEFT, P2.RIGHT, P2.UP, P2.DOWN,
             P2.ACTION_1, P2.ACTION_2]
         );
-    };
-
-    proto.createWalls = function () {
-        var wall;
-
-        wall = this.walls.create(0, 0, 'gray');
-        wall.scale.setTo(1, HEIGHT / TILE_SIZE);
-        wall.body.immovable = true;
-
-        wall = this.walls.create(WIDTH - TILE_SIZE, 0, 'gray');
-        wall.scale.setTo(1, HEIGHT / TILE_SIZE);
-        wall.body.immovable = true;
-
-        wall = this.walls.create(TILE_SIZE, 0, 'gray');
-        wall.scale.setTo(WIDTH / TILE_SIZE - 2, 1);
-        wall.body.immovable = true;
-
-        wall = this.walls.create(TILE_SIZE, HEIGHT - TILE_SIZE, 'gray');
-        wall.scale.setTo(WIDTH / TILE_SIZE - 2, 1);
-        wall.body.immovable = true;
-
-        wall = this.walls.create(WIDTH / 4, HEIGHT / 2 - TILE_SIZE / 2, 'gray');
-        wall.scale.setTo(WIDTH / TILE_SIZE / 2 - 2, 1);
-        wall.body.immovable = true;
     };
 
     proto.createPlayers = function () {
