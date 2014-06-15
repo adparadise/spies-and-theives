@@ -46,6 +46,7 @@ function Game () {
         this.game.load.image('gray', 'assets/gray.png');
         this.game.load.image('red', 'assets/red.png');
         this.game.load.image('blue', 'assets/blue.png');
+        this.game.load.image('black', 'assets/black.png');
         this.game.load.image('tiles', 'assets/tiles.png');
         this.game.load.tilemap('main', 'maps/main.json', null, Phaser.Tilemap.TILED_JSON);
     };
@@ -59,12 +60,29 @@ function Game () {
         this.map = this.game.add.tilemap('main');
         this.map.addTilesetImage('tiles', 'tiles');
         this.map.setCollisionBetween(2, 5, true, 0);
+
         this.walls = this.map.createLayer(0);
         this.walls.enableBody = true;
+
+        this.rooms = this.game.add.group();
+        this.rooms.enableBody = true;
+        this.buildRooms(this.map.objects.rooms);
 
         this.players = this.game.add.group();
         this.players.enableBody = true;
         this.createPlayers();
+    };
+
+    proto.buildRooms = function (roomObjects) {
+        var index, roomObject, room;
+
+        for (index = 0; index < roomObjects.length; index++) {
+            roomObject = roomObjects[index];
+            room = this.rooms.create(roomObject.x, roomObject.y, 'black');
+            room.scale.setTo(roomObject.width / TILE_SIZE, roomObject.height / TILE_SIZE);
+
+            room.set = roomObject.properties.roomSet;
+        }
     };
 
     proto.createInput = function () {
@@ -88,6 +106,19 @@ function Game () {
         this.updatePlayer(this.player2, P2);
 
         this.game.physics.arcade.collide(this.players, this.walls);
+
+        this.resolvePlayerRooms();
+    };
+
+    proto.resolvePlayerRooms = function () {
+        this.player1.currentRooms = {};
+        this.player2.currentRooms = {};
+
+        this.game.physics.arcade.overlap(this.players, this.rooms, updatePlayerRooms, undefined, this);
+
+        function updatePlayerRooms (player, room) {
+            player.currentRooms[room.set] = true;
+        }
     };
 
     proto.updatePlayer = function (player, keys) {

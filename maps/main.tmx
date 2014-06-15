@@ -8,4 +8,66 @@
    eJzt18sKAyEMBdCM///RpQthKhZjHsboFS50YZ14KjVTiKggqjyIKPCDH/zyBn7wg1/enOq3qpfjfidbPymtwdNvxW8f/U6wg1/mwA9+8Msb+J3rV0e00XvfhX7HDn4Z+pZC/X1F9M+S9TzP1Y5+31Dns/b5N/lx6oVfrB93wK9fh/aeyOhHRn4z51Li16tzBz+r8zey48yfPb83+P2b35pG1A8/+MEPfhF+Wjta5EeveaM+bNSfRflJ6ufe31y/3TxWn9feep5+sznRrw7r51vVn8HP4/kn+BHTjwZz4Gfv5/Gfl9HvaeZZ3ge3+HkFfvCDHy91tOvd5Gedm/w89wA/vR8izwchVhA6
   </data>
  </layer>
+ <objectgroup name="rooms" width="80" height="45">
+  <object name="room1" x="160" y="160" width="160" height="128">
+   <properties>
+    <property name="roomSet" value="1"/>
+   </properties>
+  </object>
+  <object name="corridor1" x="256" y="288" width="48" height="208">
+   <properties>
+    <property name="roomSet" value="2"/>
+   </properties>
+  </object>
+  <object name="room2" x="160" y="496" width="176" height="96">
+   <properties>
+    <property name="roomSet" value="3"/>
+   </properties>
+  </object>
+  <object name="corridor2" x="336" y="528" width="160" height="48">
+   <properties>
+    <property name="roomSet" value="4"/>
+   </properties>
+  </object>
+  <object name="room3-1" x="496" y="528" width="224" height="176">
+   <properties>
+    <property name="roomSet" value="5"/>
+   </properties>
+  </object>
+  <object name="room3-2" x="544" y="368" width="176" height="160">
+   <properties>
+    <property name="roomSet" value="5"/>
+   </properties>
+  </object>
+  <object name="corridor3" x="320" y="176" width="512" height="96">
+   <properties>
+    <property name="roomSet" value="6"/>
+   </properties>
+  </object>
+  <object name="room4-1" x="832" y="176" width="144" height="208">
+   <properties>
+    <property name="roomSet" value="7"/>
+   </properties>
+  </object>
+  <object name="room4-2" x="864" y="144" width="208" height="32">
+   <properties>
+    <property name="roomSet" value="7"/>
+   </properties>
+  </object>
+  <object name="room4-3" x="976" y="176" width="96" height="80">
+   <properties>
+    <property name="roomSet" value="7"/>
+   </properties>
+  </object>
+  <object name="corridor4" x="1024" y="256" width="48" height="240">
+   <properties>
+    <property name="roomSet" value="8"/>
+   </properties>
+  </object>
+  <object name="room5" x="928" y="496" width="304" height="160">
+   <properties>
+    <property name="roomSet" value="9"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
