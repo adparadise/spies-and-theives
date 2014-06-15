@@ -34,6 +34,25 @@ function Game () {
         this.update = this.update.bind(this);
     };
 
+    proto.setJoystickBinding = function (client) {
+        this.client = client;
+        client.setBinding({
+            4: { keyCode: P1.UP },
+            2: { keyCode: P1.DOWN },
+            1: { keyCode: P1.LEFT },
+            3: { keyCode: P1.RIGHT },
+            5: { keyCode: P1.ACTION_1 },
+            6: { keyCode: P1.ACTION_2 },
+
+            13: { keyCode: P2.UP },
+            15: { keyCode: P2.DOWN },
+            14: { keyCode: P2.LEFT },
+            12: { keyCode: P2.RIGHT },
+            17: { keyCode: P1.ACTION_1 },
+            16: { keyCode: P1.ACTION_2 }
+        }, true);
+    };
+
     proto.start = function () {
         this.game = new Phaser.Game(WIDTH, HEIGHT, Phaser.CANVAS, 'phaser-example', {
             preload: this.preload,
@@ -52,6 +71,7 @@ function Game () {
     };
 
     proto.create = function () {
+        
         this.game.stage.backgroundColor = '#2d2d2d';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -92,6 +112,9 @@ function Game () {
             P2.LEFT, P2.RIGHT, P2.UP, P2.DOWN,
             P2.ACTION_1, P2.ACTION_2]
         );
+
+        client.setEventListener(window);
+        client.connect();
     };
 
     proto.createPlayers = function () {
