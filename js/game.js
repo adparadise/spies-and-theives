@@ -67,11 +67,11 @@ function Game () {
         this.game.load.image('blue', 'assets/blue.png');
         this.game.load.image('black', 'assets/black.png');
         this.game.load.image('tiles', 'assets/tiles.png');
+        this.game.load.spritesheet('room', 'assets/room.png', TILE_SIZE, TILE_SIZE, -1, 4, 2);
         this.game.load.tilemap('main', 'maps/main.json', null, Phaser.Tilemap.TILED_JSON);
     };
 
     proto.create = function () {
-        
         this.game.stage.backgroundColor = '#2d2d2d';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -87,10 +87,12 @@ function Game () {
         this.rooms = this.game.add.group();
         this.rooms.enableBody = true;
         this.buildRooms(this.map.objects.rooms);
+        this.rooms.z = 100;
 
         this.players = this.game.add.group();
         this.players.enableBody = true;
         this.createPlayers();
+        this.players.z = 99;
     };
 
     proto.buildRooms = function (roomObjects) {
@@ -98,10 +100,13 @@ function Game () {
 
         for (index = 0; index < roomObjects.length; index++) {
             roomObject = roomObjects[index];
-            room = this.rooms.create(roomObject.x, roomObject.y, 'black');
+            room = this.rooms.create(roomObject.x, roomObject.y, 'room', 2);
             room.scale.setTo(roomObject.width / TILE_SIZE, roomObject.height / TILE_SIZE);
 
             room.set = roomObject.properties.roomSet;
+            room.isOff = roomObject.properties.isOff;
+
+            this.updateRoomFrame(room);
         }
     };
 
@@ -141,6 +146,7 @@ function Game () {
 
         function updatePlayerRooms (player, room) {
             player.currentRooms[room.set] = true;
+            player.currentRoom = room.set;
         }
     };
 
@@ -160,6 +166,15 @@ function Game () {
             x = PLAYER_SPEED;
         }
 
+        if (!player.isAction1Down &&
+            this.game.input.keyboard.isDown(keys.ACTION_1)) {
+            player.isAction1Down = true;
+
+            this.switchRoomColor(player.currentRoom);
+        } else if (!this.game.input.keyboard.isDown(keys.ACTION_1)) {
+            player.isAction1Down = false;
+        };
+
         if (x && y) {
             x = x * SQRT_2_DIV_2;
             y = y * SQRT_2_DIV_2;
@@ -168,4 +183,34 @@ function Game () {
         player.body.velocity.y = y;
         player.body.velocity.x = x;
     };
+
+    proto.switchRoomColor = function (roomSet) {
+        var rooms, index, room;
+
+        rooms = this.getRoomsBySet(roomSet);
+        for (index = 0; index < rooms.length; index++) {
+            room = rooms[index];
+            room.isOff = !room.isOff;
+
+            this.updateRoomFrame(room);
+        }
+    };
+
+    proto.updateRoomFrame = function (room) {
+        room.frame = room.isOff ? 0 : 1;
+    };
+
+    proto.getRoomsBySet = function (roomSet) {
+        var rooms;
+
+        rooms = [];
+        this.rooms.forEach(function (room) {
+            if (room.set === roomSet) {
+                rooms.push(room);
+            }
+        }, this);
+
+        return rooms;
+    };
+
 }(Game.prototype));
