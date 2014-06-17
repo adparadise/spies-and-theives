@@ -5,7 +5,7 @@
  </tileset>
  <layer name="walls" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt10EOhCAMBdDK/Q89KxKnwdBCSyn8Jj+ZRVV44oiFiAoylQcZCvzgB7+8gR/84Jc3p/qt2stJj8m2nxwdg6ffinsf/U2wg1/mwA9+8Msb+J3rVyva6D3vQv+1g190adYZn1fE/pnbZdj3rfarNvz3l9+KZ3DmOYnwk4wXfrF+0oJfexyz/3MZ/cjIT7MuR/yo0beDn9X669lJ+rXr9wa/r35uajF++MEPfvDL4Ddr1xqrhx+9+nr7sF6vdj9n6S257sj7W+qnua+1NMfsvl5b5/P209SJfrWsr281/gx+Htc/wY+EftTpgZ+tn9c7N6Pfw/qkIec5ZfLzCvzgBz9ZavHz3eRnnZv8POcAv3k/ZDw/kdYP8g==
+   eJzt19EOwyAIBVC6///oPZk0BgQUqrSXhGRZtOLRTvcjoh9yKS/kVM76aetBE32k9fT048Y91U8K6XnWcTi/mZpO9+O+J9L3hza30X4c9d3xGxXt1+aohTQ/KSy2o/4n+0lz9fhnvtvV/LLPCGu/Kn694ehsuYfUf9TOU19f08z6RPmNzgKuvoy1XlnfrH4eP+8zd2dVv8oJP/jBr27C771+LXYb3efN3cN2++0Ozz7j/s9k+VnuWaS0PeXe97Rfs+k/S35PvIMr78kOP0u98NvrZw348XWs/s5V9KMgP8++nPEjpt0JflH7T7OztPfu3y/4Se1704j64Qc/+MGvgt+qHVdrhh/d2mn3MK2t9z4X6W0Zd+b8tvp51rWFp8/p+5V7XrafJ97o1yJ6/Kj6K/hljP8GPzL6kdIGfrF+WWduRb+ra2dNSp5TJb+shB/84GfLFv3zvuQXnV/yy5wD/Nb9kPP5BwTPEBA=
   </data>
  </layer>
  <objectgroup name="rooms" width="80" height="45">
@@ -67,6 +67,46 @@
   <object name="room5" x="928" y="496" width="304" height="160">
    <properties>
     <property name="roomSet" value="9"/>
+   </properties>
+  </object>
+  <object name="room6-2" x="224" y="48" width="96" height="96">
+   <properties>
+    <property name="roomSet" value="11"/>
+   </properties>
+  </object>
+  <object name="room6-1" x="224" y="144" width="48" height="16">
+   <properties>
+    <property name="roomSet" value="11"/>
+   </properties>
+  </object>
+  <object name="corridor5-1" x="320" y="80" width="144" height="32">
+   <properties>
+    <property name="roomSet" value="10"/>
+   </properties>
+  </object>
+  <object name="corridor5-2" x="432" y="48" width="144" height="32">
+   <properties>
+    <property name="roomSet" value="10"/>
+   </properties>
+  </object>
+  <object name="corridor5-3" x="544" y="80" width="144" height="32">
+   <properties>
+    <property name="roomSet" value="10"/>
+   </properties>
+  </object>
+  <object name="corridor5-4" x="656" y="48" width="144" height="32">
+   <properties>
+    <property name="roomSet" value="10"/>
+   </properties>
+  </object>
+  <object name="corridor5-5" x="768" y="80" width="144" height="32">
+   <properties>
+    <property name="roomSet" value="10"/>
+   </properties>
+  </object>
+  <object name="corridor5-6" x="864" y="112" width="48" height="32">
+   <properties>
+    <property name="roomSet" value="10"/>
    </properties>
   </object>
  </objectgroup>
