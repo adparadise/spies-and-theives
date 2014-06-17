@@ -5,7 +5,7 @@
  </tileset>
  <layer name="walls" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt18sKAyEMBdCM///RpQthKhZjHsboFS50YZ14KjVTiKggqjyIKPCDH/zyBn7wg1/enOq3qpfjfidbPymtwdNvxW8f/U6wg1/mwA9+8Msb+J3rV0e00XvfhX7HDn4Z+pZC/X1F9M+S9TzP1Y5+31Dns/b5N/lx6oVfrB93wK9fh/aeyOhHRn4z51Li16tzBz+r8zey48yfPb83+P2b35pG1A8/+MEPfhF+Wjta5EeveaM+bNSfRflJ6ufe31y/3TxWn9feep5+sznRrw7r51vVn8HP4/kn+BHTjwZz4Gfv5/Gfl9HvaeZZ3ge3+HkFfvCDHy91tOvd5Gedm/w89wA/vR8izwchVhA6
+   eJzt10EOhCAMBdDK/Q89KxKnwdBCSyn8Jj+ZRVV44oiFiAoylQcZCvzgB7+8gR/84Jc3p/qt2stJj8m2nxwdg6ffinsf/U2wg1/mwA9+8Msb+J3rVyva6D3vQv+1g190adYZn1fE/pnbZdj3rfarNvz3l9+KZ3DmOYnwk4wXfrF+0oJfexyz/3MZ/cjIT7MuR/yo0beDn9X669lJ+rXr9wa/r35uajF++MEPfvDL4Ddr1xqrhx+9+nr7sF6vdj9n6S257sj7W+qnua+1NMfsvl5b5/P209SJfrWsr281/gx+Htc/wY+EftTpgZ+tn9c7N6Pfw/qkIec5ZfLzCvzgBz9ZavHz3eRnnZv8POcAv3k/ZDw/kdYP8g==
   </data>
  </layer>
  <objectgroup name="rooms" width="80" height="45">
@@ -14,32 +14,32 @@
     <property name="roomSet" value="1"/>
    </properties>
   </object>
-  <object name="corridor1" x="256" y="288" width="48" height="208">
+  <object name="corridor1" x="256" y="288" width="64" height="208">
    <properties>
     <property name="roomSet" value="2"/>
    </properties>
   </object>
-  <object name="room2" x="160" y="496" width="176" height="96">
+  <object name="room2" x="160" y="496" width="160" height="96">
    <properties>
     <property name="roomSet" value="3"/>
    </properties>
   </object>
-  <object name="corridor2" x="336" y="528" width="160" height="48">
+  <object name="corridor2" x="320" y="496" width="176" height="80">
    <properties>
     <property name="roomSet" value="4"/>
    </properties>
   </object>
-  <object name="room3-1" x="496" y="528" width="224" height="176">
+  <object name="room3-1" x="496" y="496" width="224" height="208">
    <properties>
     <property name="roomSet" value="5"/>
    </properties>
   </object>
-  <object name="room3-2" x="544" y="368" width="176" height="160">
+  <object name="room3-2" x="544" y="368" width="176" height="128">
    <properties>
     <property name="roomSet" value="5"/>
    </properties>
   </object>
-  <object name="corridor3" x="320" y="176" width="512" height="96">
+  <object name="corridor3" x="320" y="176" width="512" height="112">
    <properties>
     <property name="roomSet" value="6"/>
    </properties>
