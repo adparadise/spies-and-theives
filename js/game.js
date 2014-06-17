@@ -48,9 +48,9 @@ function Game () {
             15: { keyCode: P2.DOWN },
             14: { keyCode: P2.LEFT },
             12: { keyCode: P2.RIGHT },
-            17: { keyCode: P1.ACTION_1 },
-            16: { keyCode: P1.ACTION_2 }
-        }, true);
+            17: { keyCode: P2.ACTION_1 },
+            16: { keyCode: P2.ACTION_2 }
+       }, true);
     };
 
     proto.start = function () {
